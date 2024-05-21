@@ -1,14 +1,14 @@
 import React from "react";
-import Link from "next/link"
+import Link from "next/link";
 //Main Component
 export default function Footer({}) {
   return (
     <footer className=" mt-[50px]  border-t border-gray-300 p-4 sm:p-6">
       <div className="mx-auto max-w-6xl sm:flex sm:justify-between">
         <div className="mx-auto mb-6 w-fit max-w-[175px] sm:mx-0 md:mb-0">
-        <Link href={"/"} className="font-bold text-2xl">
-        <span className="text-primary">Kidz</span><span className="text-secondary">Marty</span>
-      </Link>
+          <Link href={"/"} className="font-bold text-2xl">
+            <img className="w-full" src="/images/logo.png" />
+          </Link>
         </div>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-6 ">
           <div className=" flex flex-col items-center text-center sm:items-start sm:text-left">

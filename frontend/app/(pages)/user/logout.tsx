@@ -13,7 +13,7 @@ export default function logout() {
         router.refresh();
         router.push("/");
       }}
-      className="bg-orange text-white font-bold p-2 rounded-md w-full hover:bg-white border-2 border-orange hover:text-orange transition-all"
+      className="bg-secondary text-white font-bold p-2 rounded-md w-full hover:bg-white border-2 border-secondary hover:text-secondary transition-all"
     >
       LogOut
     </button>

@@ -23,34 +23,34 @@ const header = async () => {
   }
   return (
     <div className="h-24 flex items-center bg-white mb-2">
-    <header className="py-3 shadow-lg* h-24 font-medium px-2 flex max-w-[1200px] mx-auto fixed top-0 left-0 right-0 z-50 bg-white w-screen items-center justify-between">
-      <div className="sm:hidden flex">
-        <MobileNavigation links={links} />
-        <CartButton />
-      </div>
-      
-      {/* <Link href={"/"} className="h-[40px] ml-2 w-fit mx-auto sm:mx-0 ">
+      <header className="py-3 shadow-lg* h-24 font-medium px-2 flex max-w-[1200px] mx-auto fixed top-0 left-0 right-0 z-50 bg-white w-screen items-center justify-between">
+        <div className="sm:hidden flex">
+          <MobileNavigation links={links} />
+          <CartButton />
+        </div>
+
+        {/* <Link href={"/"} className="h-[40px] ml-2 w-fit mx-auto sm:mx-0 ">
         <img className="h-full" src="/images/logo-ai.png" alt="kidzmarty logo" />
       </Link> */}
-     <Link href={"/"} className="font-bold text-2xl">
-        <span className="text-primary">Kidz</span><span className="text-secondary">Marty</span>
-      </Link>
-
-      <Navigation links={links} />
-
-      <div className="flex">
-        <Search />
-        <span className="sm:flex hidden">
-          <CartButton />
-        </span>
-        <Link
-          href={"/user"}
-          className="mx-4 hover:-translate-y-1 transition-all"
-        >
-          <AuthIcon />
+        <Link href={"/"} className="font-bold text-2xl max-w-[150px]">
+          <img className="w-full" src="/images/logo.png" />
         </Link>
-      </div>
-    </header>
+
+        <Navigation links={links} />
+
+        <div className="flex">
+          <Search />
+          <span className="sm:flex hidden">
+            <CartButton />
+          </span>
+          <Link
+            href={"/user"}
+            className="mx-4 hover:-translate-y-1 transition-all"
+          >
+            <AuthIcon />
+          </Link>
+        </div>
+      </header>
     </div>
   );
 };
