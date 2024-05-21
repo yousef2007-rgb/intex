@@ -1,0 +1,32 @@
+{
+  "name": "cms-kids-marty",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@vercel/kv": "^0.2.3",
+    "axios": "^1.5.1",
+    "connect-redis": "^7.1.0",
+    "cookie": "^0.5.0",
+    "ioredis": "^5.3.2",
+    "next": "latest",
+    "next-app-session": "^1.0.4",
+    "openai": "^4.12.1",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "autoprefixer": "latest",
+    "postcss": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  }
+}
