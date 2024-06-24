@@ -20,7 +20,7 @@ export default function navigation({
         style={{
           transform: `translateX(${isVisible ? 0 : -1000}px)`,
         }}
-        className="flex ease-in-out fixed top-28 px-5 transition-all left-0 h-full w-full sm:hidden  bg-white z-50 flex-col  text-gray-900 font-bold text-left text-lg"
+        className="flex ease-in-out fixed top-24 px-5 transition-all left-0 h-full w-full sm:hidden  bg-white z-50 flex-col  text-gray-900 font-bold text-left text-lg"
       >
         <div className="flex flex-col" onClick={() => setIsVisible(false)}>
           <Attribute link="/" text="Home" />

@@ -1,7 +1,9 @@
 import { Product } from "@/types/productsTypes";
+import { Category } from "@/types/productsTypes";
 import axios from "axios";
 import React from "react";
 import { productCards as ProductCard } from "@/components/product/productCards";
+import type { Metadata } from "next";
 
 const getProducts = async (id: string) => {
   const products = await axios.get(
@@ -11,8 +13,49 @@ const getProducts = async (id: string) => {
   return products.data;
 };
 
+const getCategory = async (id: string) => {
+  const category = await axios.get(`${process.env.URL}/api/categories/${id}`);
+
+  return category.data;
+};
+
+export const metadata = {};
+
+export async function generateMetaData({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const category: Category = await getCategory(params.id);
+  console.log(category);
+
+  return {
+    title: `${category.title} | Intex | Jordan | Intex Jo`,
+    description: category.discription,
+    keywords: category.keywords,
+    viewport: "width=device-width, initial-scale=1.0",
+    openGraph: {
+      title: `${category.title} | Intex | Jordan | Intex Jo`,
+      description: category.discription,
+      type: "website",
+      url: `https://www.intexjordan.com/category/${params.id}`,
+      images: ["https://www.intexjo.com/Assets/images/www.intexjo.com.png"],
+    },
+    twitter: {
+      card: "summary",
+      site: "@intex-jo",
+      title: category.title,
+      description: category.discription,
+    },
+    icons: {
+      icon: "/icon.jpg",
+    },
+  };
+}
+
 const page = async ({ params }: { params: { id: string } }) => {
   const products: Product[] = await getProducts(params.id);
+  console.log(await getCategory(params.id));
 
   return (
     <main className="flex flex-1 flex-col">

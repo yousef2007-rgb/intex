@@ -62,7 +62,7 @@ export const body: FC<Props> = ({ products, setVisability }) => {
   };
   return (
     <div className="fixed top-0 left-0 z-50 w-screen min-h-screen bg-black bg-opacity-30 backdrop-blur-sm">
-      <div className="py-7 flex items-center justify-center px-3 bg-primary">
+      <div className="py-7 flex items-center justify-center px-3 bg-secondary">
         <div className="ml-auto max-w-lg flex-1 relative mr-2">
           <div className="flex bg-gray-color w-full p-2 rounded-md">
             <input
@@ -88,7 +88,7 @@ export const body: FC<Props> = ({ products, setVisability }) => {
                 <Link
                   onClick={handleClose}
                   key={index}
-                  className="flex p-2 rounded-md transition-all items-center hover:bg-gray-300"
+                  className="flex p-2 rounded-md font-bold transition-all items-center hover:bg-gray-300"
                   href={`/product/${product._id}`}
                 >
                   <div className="mr-2">

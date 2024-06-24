@@ -2,6 +2,33 @@ import { Product } from "@/types/productsTypes";
 import axios from "axios";
 import React from "react";
 import { productCards as ProductCard } from "@/components/product/productCards";
+import type { Metadata } from "next";
+import data from "@/data/homepage.json";
+const content = data.Head.english;
+
+export const metadata: Metadata = {
+  title: content.title,
+  description: content.discription,
+  keywords: content.keywords,
+  viewport: "width=device-width, initial-scale=1.0",
+  openGraph: {
+    title: content.title,
+    description: content.discription,
+    type: "website",
+    url: content.url,
+    images: ["https://www.intexjo.com/Assets/images/www.intexjo.com.png"],
+  },
+  twitter: {
+    card: "summary",
+    site: "@intex-jo",
+    title: content.title,
+    description: content.discription,
+  },
+  icons: {
+    icon: "/icon.jpg",
+  },
+  robots: "index, follow",
+};
 
 const getProducts = async (ageRange: string) => {
   const products = await axios.get(
