@@ -56,7 +56,7 @@ const page = async ({
   searchParams,
 }: {
   params: { id: string };
-  searchParams: { varientId: string };
+  searchParams: { varientId: string; lang: string };
 }) => {
   const productData: Product = await getProduct(params.id);
 
@@ -66,43 +66,78 @@ const page = async ({
   );
 
   const content: Varient | Product = varient ? varient : productData;
+  const lang = searchParams.lang;
   return (
     <>
-      <main className="flex sm:flex-row flex-col flex-1 relative w-full">
+      <main
+        className="flex sm:flex-row flex-col flex-1 relative w-full"
+        style={{
+          flexDirection: lang != "ar" ? "row" : "row-reverse",
+        }}
+      >
         <ImageSlider productData={productData} varient={varient} />
-        <article className="sm:w-1/2 my-5 w-full px-5">
-          <h1 className="font-bold mb-4 text-3xl">{content.title}</h1>
-          <h2 className="my-4 font-bold ">Item No: {productData.lable}</h2>
+        <article
+          className="sm:w-1/2 my-5 w-full px-5"
+          style={{
+            textAlign: lang != "ar" ? "left" : "right",
+          }}
+        >
+          <h1 className="font-bold mb-4 text-3xl">
+            {lang != "ar" ? content.title : content.title_ar}
+          </h1>
+          <h2 className="my-4 font-bold w-full ">
+            {lang != "ar" ? "item No" : " :رقم المنتج"} {productData.lable}
+          </h2>
           <div
-            // href={`/brand/${productData.brand._id}`}
+            // href={`/brand/${productData.brand._id}`} for KidsMarty
             className="font-bold flex capitalize my-4"
+            style={{
+              flexDirection: lang != "ar" ? "row" : "row-reverse",
+            }}
           >
-            <span>Brand:</span>{" "}
+            <span>{lang != "ar" ? "brand" : " :العلامة التجارية"}</span>{" "}
             <span className="text-primary hover:underline ml-2">
-              {productData.brand.title}
+              {lang != "ar"
+                ? productData.brand.title
+                : productData.brand.title_ar}
             </span>
           </div>
           <Link
-            href={`/productData/${productData.category._id}`}
+            href={`/category/${productData.category._id}/?lang=${lang}`}
+            style={{
+              flexDirection: lang != "ar" ? "row" : "row-reverse",
+            }}
             className="font-bold flex capitalize my-4"
           >
-            <span>productData:</span>{" "}
+            <span>{lang != "ar" ? "category" : " :الفئة"}</span>{" "}
             <span className="text-primary hover:underline ml-2">
-              {productData.category.title}
+              {lang != "ar"
+                ? productData.category.title
+                : productData.category.title_ar}
             </span>
           </Link>
           <Link
             href={`/ageRange/${productData.ageRange}`}
+            style={{
+              flexDirection: lang != "ar" ? "row" : "row-reverse",
+            }}
             className="font-bold capitalize flex my-4"
           >
-            <span>age range:</span>{" "}
+            <span>{lang != "ar" ? "age range:" : " :الفئة العمرية"}</span>{" "}
             <span className="text-primary hover:underline ml-2">
               {productData.ageRange}
             </span>
           </Link>
-          <p className="my-4 font-semibold">{content.discription}</p>
+          <p className="my-4 font-semibold">
+            {lang != "ar" ? content.discription : content.discription_ar}
+          </p>
 
-          <div className="text-xl font-semibold border-gray-300 w-full border-t pt-4 flex">
+          <div
+            className="text-xl font-semibold border-gray-300 w-full border-t pt-4 flex"
+            style={{
+              flexDirection: lang != "ar" ? "row" : "row-reverse",
+            }}
+          >
             {productData.discount != 0 ? (
               <span className="text-red-500 mr-2">
                 -{productData.discount}%
@@ -110,7 +145,7 @@ const page = async ({
             ) : (
               ""
             )}
-            <p className="">
+            <p className="flex">
               {productData.discount == 0
                 ? productData.online_price
                 : productData.online_price -
@@ -120,14 +155,15 @@ const page = async ({
           </div>
           {productData.discount != 0 ? (
             <p className="capitalize line-through text-gray-500 through font-bold">
-              list price: {productData.online_price}
+              {lang != "ar" ? "list price" : " :السعر المحدد"}{" "}
+              {productData.online_price}
             </p>
           ) : (
             ""
           )}
           {!productData.isInStock ? (
             <p className="font-bold capitalize text-red-500 my-4 text-center">
-              out of stock
+              {lang != "ar" ? "out of stock" : "نفدت الكمية"}
             </p>
           ) : (
             ""
@@ -144,6 +180,7 @@ const page = async ({
                   : productData.online_price -
                     (productData.online_price * productData.discount) / 100,
             }}
+            lang={lang}
             dimensions={productData.dimensions}
           />
           {productData.varients && productData.varients.length != 0 ? (

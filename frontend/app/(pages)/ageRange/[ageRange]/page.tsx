@@ -38,7 +38,13 @@ const getProducts = async (ageRange: string) => {
   return products.data;
 };
 
-const page = async ({ params }: { params: { ageRange: string } }) => {
+const page = async ({
+  params,
+  searchParams,
+}: {
+  params: { ageRange: string };
+  searchParams: { lang: string };
+}) => {
   const products: Product[] = await getProducts(params.ageRange);
 
   return (
@@ -48,7 +54,11 @@ const page = async ({ params }: { params: { ageRange: string } }) => {
       </h1>
       <div className="flex flex-wrap justify-evenly">
         {products.map((product: Product, index: number) => (
-          <ProductCard index={index} product={product} />
+          <ProductCard
+            lang={searchParams.lang}
+            index={index}
+            product={product}
+          />
         ))}
       </div>
     </main>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import axios from "axios";
 import { search as Search } from "@/components/search/index";
 import { authIcon as AuthIcon } from "@/public/icons/authIcon";
@@ -6,6 +6,7 @@ import { cartButton as CartButton } from "./cartButton";
 import Navigation from "./navigation";
 import MobileNavigation from "./mobileNavigation";
 import Link from "next/link";
+import Language from "./language";
 
 const getCategories = async () => {
   const categories = await axios.get(`${process.env.URL}/api/categories`);
@@ -39,6 +40,7 @@ const header = async () => {
         <Navigation links={links} />
 
         <div className="flex">
+          <Language />
           <Search />
           <span className="sm:flex hidden">
             <CartButton />

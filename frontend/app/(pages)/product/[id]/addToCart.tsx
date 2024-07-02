@@ -3,7 +3,13 @@ import React, { FC } from "react";
 import { useAppContext } from "@/app/AppContext";
 import { Item, ItemWithQuantity } from "@/types/productsTypes";
 
-export const addToCart = ({ item }: { item: ItemWithQuantity }) => {
+export const addToCart = ({
+  item,
+  lang,
+}: {
+  item: ItemWithQuantity;
+  lang: string;
+}) => {
   const context = useAppContext();
   console.log(context.state);
   const handleAddToCart = () => {
@@ -29,7 +35,7 @@ export const addToCart = ({ item }: { item: ItemWithQuantity }) => {
       onClick={handleAddToCart}
       className="bg-primary text-white capitalize w-full rounded-md font-semibold my-4 border-2 border-primary p-3 hover:bg-transparent hover:text-primary"
     >
-      add to cart
+      {lang != "ar" ? "add to cart" : "أضف إلى السلة"}
     </button>
   );
 };

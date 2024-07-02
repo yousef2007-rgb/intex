@@ -6,9 +6,11 @@ import { Item } from "@/types/productsTypes";
 export const operations = ({
   item,
   dimensions,
+  lang,
 }: {
   item: Item;
   dimensions?: string[];
+  lang: string;
 }) => {
   const [counter, setCounter] = useState(1);
   const [choosenDimension, setChoosenDimension] = useState(
@@ -27,7 +29,9 @@ export const operations = ({
     <>
       {dimensions && dimensions.length != 0 ? (
         <div className="flex flex-col my-4">
-          <span className="capitalize font-bold mr-2">dimensions:</span>
+          <span className="capitalize font-bold mr-2">
+            {lang != "ar" ? "dimension" : "الأبعاد"}:
+          </span>
           <select
             onClick={(e: any) => setChoosenDimension(e.target.value)}
             className="font-bold outline-none flex-1 mt-2 text-center bg-gray-100 rounded-md px-3 py-2"
@@ -65,6 +69,7 @@ export const operations = ({
             ? item.title + ` (${choosenDimension})`
             : item.title,
         }}
+        lang={lang}
       />
     </>
   );

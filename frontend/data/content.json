@@ -1,48 +1,66 @@
 {
   "shopByAgeSection": {
-    "ar": [
-      {
-        "title": "0 إلى 24 شهرًا",
-        "image": "///images/0_24.png",
-        "ageRange": "0-2"
-      },
-      {
-        "title": "2 إلى 6 سنوات",
-        "image": "///images/2_6.png",
-        "ageRange": "2-6"
-      },
-      {
-        "title": "7 إلى 12 سنة",
-        "image": "///images/7_12.png",
-        "ageRange": "7-12"
-      },
-      {
-        "title": "13 سنة وأكثر",
-        "image": "///images/13_up.png",
-        "ageRange": "13-up"
-      }
-    ],
-    "en": [
-      {
-        "title": "0 to 24 months",
-        "image": "/images/0_24.png",
-        "ageRange": "0-2"
-      },
-      {
-        "title": "2 to 6 years",
-        "image": "/images/2_6.png",
-        "ageRange": "2-6"
-      },
-      {
-        "title": "7 to 12 years",
-        "image": "/images/7_12.png",
-        "ageRange": "7-12"
-      },
-      {
-        "title": "13 years & up",
-        "image": "/images/13_up.png",
-        "ageRange": "13-up"
-      }
-    ]
+    "title": {
+      "ar": "تسوق حسب العمر",
+      "en": "Shop By Age"
+    },
+    "items": {
+      "ar": [
+        {
+          "title": "0 إلى 24 شهرًا",
+          "image": "/images/0_24.png",
+          "ageRange": "0-2"
+        },
+        {
+          "title": "2 إلى 6 سنوات",
+          "image": "/images/2_6.png",
+          "ageRange": "2-6"
+        },
+        {
+          "title": "7 إلى 12 سنة",
+          "image": "/images/7_12.png",
+          "ageRange": "7-12"
+        },
+        {
+          "title": "13 سنة وأكثر",
+          "image": "/images/13_up.png",
+          "ageRange": "13-up"
+        }
+      ],
+      "en": [
+        {
+          "title": "0 to 24 months",
+          "image": "/images/0_24.png",
+          "ageRange": "0-2"
+        },
+        {
+          "title": "2 to 6 years",
+          "image": "/images/2_6.png",
+          "ageRange": "2-6"
+        },
+        {
+          "title": "7 to 12 years",
+          "image": "/images/7_12.png",
+          "ageRange": "7-12"
+        },
+        {
+          "title": "13 years & up",
+          "image": "/images/13_up.png",
+          "ageRange": "13-up"
+        }
+      ]
+    }
+  },
+  "navigation": {
+    "en": {
+      "home": "home",
+      "aboutus": "about us",
+      "categories": "categories"
+    },
+    "ar": {
+      "home": "المنزل",
+      "aboutus": "معلومات عنا",
+      "categories": "فئات"
+    }
   }
 }

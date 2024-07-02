@@ -29,12 +29,16 @@ export const metadata: Metadata = {
   robots: "index, follow",
 };
 
-export default function Home() {
+export default function Home({
+  searchParams,
+}: {
+  searchParams: { lang: string };
+}) {
   return (
     <main className="flex min-h-screen flex-col ">
       <Intro />
-      <ShopByAge />
-      <Body />
+      <ShopByAge lang={searchParams.lang} />
+      <Body lang={searchParams.lang} />
     </main>
   );
 }

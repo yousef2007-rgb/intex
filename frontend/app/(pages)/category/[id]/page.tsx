@@ -23,8 +23,10 @@ export const metadata = {};
 
 export async function generateMetaData({
   params,
+  searchParams,
 }: {
   params: { id: string };
+  searchParams: { lang?: string };
 }): Promise<Metadata> {
   const category: Category = await getCategory(params.id);
   console.log(category);
@@ -53,18 +55,30 @@ export async function generateMetaData({
   };
 }
 
-const page = async ({ params }: { params: { id: string } }) => {
+const page = async ({
+  params,
+  searchParams,
+}: {
+  params: { id: string };
+  searchParams: { lang?: string };
+}) => {
   const products: Product[] = await getProducts(params.id);
   console.log(await getCategory(params.id));
 
   return (
     <main className="flex flex-1 flex-col">
       <h1 className="mx-auto text-3xl mt-5 mb-10 font-bold">
-        {products[0].category.title}
+        {searchParams.lang != "ar"
+          ? products[0].category.title
+          : products[0].category.title_ar}
       </h1>{" "}
       <div className="flex flex-wrap justify-evenly">
         {products.map((product: Product, index: number) => (
-          <ProductCard index={index} product={product} />
+          <ProductCard
+            lang={searchParams?.lang}
+            index={index}
+            product={product}
+          />
         ))}{" "}
       </div>
     </main>
