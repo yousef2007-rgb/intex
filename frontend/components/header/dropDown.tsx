@@ -4,10 +4,16 @@ import Link from "next/link";
 
 interface Props {
   title: string;
-  links: { text: string; link: string }[];
+  links: { text: string; text_ar: string; link: string }[];
   setNavVisability?: React.Dispatch<React.SetStateAction<boolean>>;
+  lang: string | null;
 }
-export const dropDown: FC<Props> = ({ title, links, setNavVisability }) => {
+export const dropDown: FC<Props> = ({
+  title,
+  links,
+  setNavVisability,
+  lang,
+}) => {
   const [dropDownVisability, setDropDownVisability] = useState<boolean>(false);
   const handleMouseOver = () => {
     setDropDownVisability(true);
@@ -37,9 +43,9 @@ export const dropDown: FC<Props> = ({ title, links, setNavVisability }) => {
           <Link
             className="my-2 hover:underline decoration-2 text-md"
             key={index}
-            href={link.link}
+            href={`${link.link}/?lang=${lang}`}
           >
-            {link.text}
+            {lang != "ar" ? link.text : link.text_ar}
           </Link>
         ))}
       </div>

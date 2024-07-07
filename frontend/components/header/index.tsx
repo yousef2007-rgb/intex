@@ -19,6 +19,7 @@ const header = async () => {
   for (let i = 0; i < categories.length; i++) {
     links.push({
       text: categories[i].title,
+      text_ar: categories[i].title_ar,
       link: `/category/${categories[i]._id}`,
     });
   }

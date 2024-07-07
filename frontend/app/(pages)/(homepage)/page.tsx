@@ -35,7 +35,10 @@ export default function Home({
   searchParams: { lang: string };
 }) {
   return (
-    <main className="flex min-h-screen flex-col ">
+    <main
+      className="flex min-h-screen flex-col "
+      style={{ fontFamily: searchParams.lang != "ar" ? "Poppins" : "Cairo" }}
+    >
       <Intro />
       <ShopByAge lang={searchParams.lang} />
       <Body lang={searchParams.lang} />

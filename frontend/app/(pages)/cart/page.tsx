@@ -13,9 +13,11 @@ const page = (props: {}) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const checkout = searchParams.get("checkout");
+  const lang = searchParams.get("lang");
   const cartItems = useAppContext().state.cart;
   const context = useAppContext();
   const [total, setTotal] = useState<number>(0);
+  const isEn = lang != "ar";
 
   useEffect(() => {
     calculateTotal();
@@ -83,11 +85,15 @@ const page = (props: {}) => {
     <div className=" !w-full mx-auto px-5 flex-1  flex flex-col justify-center">
       {cartItems.length === 0 ? (
         <div className="text-center mt-10 font-bold text-xl capitalize flex min-h-[50vh] items-center">
-          <span className="mx-auto">Your cart is empty :(</span>
+          <span className="mx-auto">
+            {isEn ? "your cart is empty " : "سلتك فارغة"}
+          </span>
         </div>
       ) : (
         <>
-          <h1 className="text-3xl font-bold my-5">Your Cart</h1>
+          <h1 className="text-3xl font-bold my-5">
+            {isEn ? "Your Cart" : "قائمة التسوق"}
+          </h1>
           <div className="flex justify-between flex-wrap gap-4">
             {cartItems.map((product: ItemWithQuantity, index: number) => (
               <div

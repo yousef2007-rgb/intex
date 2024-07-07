@@ -66,7 +66,10 @@ const page = async ({
   console.log(await getCategory(params.id));
 
   return (
-    <main className="flex flex-1 flex-col">
+    <main
+      className="flex flex-1 flex-col"
+      style={{ fontFamily: searchParams.lang != "ar" ? "Poppins" : "Cairo" }}
+    >
       <h1 className="mx-auto text-3xl mt-5 mb-10 font-bold">
         {searchParams.lang != "ar"
           ? products[0].category.title

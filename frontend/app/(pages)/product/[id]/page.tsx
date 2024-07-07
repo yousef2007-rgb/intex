@@ -73,6 +73,7 @@ const page = async ({
         className="flex sm:flex-row flex-col flex-1 relative w-full"
         style={{
           flexDirection: lang != "ar" ? "row" : "row-reverse",
+          fontFamily: searchParams.lang != "ar" ? "Poppins" : "Cairo",
         }}
       >
         <ImageSlider productData={productData} varient={varient} />
@@ -86,7 +87,7 @@ const page = async ({
             {lang != "ar" ? content.title : content.title_ar}
           </h1>
           <h2 className="my-4 font-bold w-full ">
-            {lang != "ar" ? "item No" : " :رقم المنتج"} {productData.lable}
+            item No: {productData.lable}
           </h2>
           <div
             // href={`/brand/${productData.brand._id}`} for KidsMarty
@@ -133,9 +134,9 @@ const page = async ({
           </p>
 
           <div
-            className="text-xl font-semibold border-gray-300 w-full border-t pt-4 flex"
+            className="text-xl font-semibold border-gray-300 w-fit border-t pt-4 flex"
             style={{
-              flexDirection: lang != "ar" ? "row" : "row-reverse",
+              marginLeft: lang != "ar" ? "0" : "auto",
             }}
           >
             {productData.discount != 0 ? (
@@ -155,7 +156,7 @@ const page = async ({
           </div>
           {productData.discount != 0 ? (
             <p className="capitalize line-through text-gray-500 through font-bold">
-              {lang != "ar" ? "list price" : " :السعر المحدد"}{" "}
+              {lang != "ar" ? "list price" : "السعر الأصلي:"}{" "}
               {productData.online_price}
             </p>
           ) : (
