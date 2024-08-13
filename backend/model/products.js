@@ -15,7 +15,7 @@ const varientSchema = new mongoose.Schema({
 const productSchema = new mongoose.Schema({
     title: { type: String, required: true },
     discription: { type: String, required: true },
-    lable: {type: String, required: true},
+    lable: { type: String, required: true },
     keywords: { type: String },
     title_ar: { type: String, required: true },
     discription_ar: { type: String, required: true },
@@ -34,6 +34,7 @@ const productSchema = new mongoose.Schema({
         enum: ['0-2', '2-6', '7-12', '13-up']
     },
     varients: { type: [varientSchema] },
+    similarProducts: { type: [mongoose.Schema.ObjectId], ref: "Product", required: true }
 });
 
 const Product = mongoose.model("Product", productSchema);
@@ -46,7 +47,7 @@ const validateProduct = reqBody => {
         keywords: Joi.string(),
         title_ar: Joi.string().required(),
         discription_ar: Joi.string(),
-        dimensions:Joi.array().items(Joi.string()),
+        dimensions: Joi.array().items(Joi.string()),
         imagesUrls: Joi.array().items(Joi.string()),
         online_price: Joi.number().required(),
         wholesale_price: Joi.number().required(),
@@ -64,8 +65,9 @@ const validateProduct = reqBody => {
             discription_ar: Joi.string(),
             imageUrl: Joi.string().required(),
             imagesUrls: Joi.array().items(Joi.string()),
-            _id:Joi.string(),
+            _id: Joi.string(),
         })),
+        similarProducts: Joi.array().items(Joi.string())
     })
 
     return schema.validate(reqBody)

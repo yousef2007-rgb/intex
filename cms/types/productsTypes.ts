@@ -74,6 +74,7 @@ export interface Product {
     ageRange: "0-2" | "2-6" | "7-12" | "13-up";
     varients?: Varient[];
     dimensions?: string[];
+    similarProducts: string[];
 }
 
 export interface ProductWithId extends Product {

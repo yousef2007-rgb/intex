@@ -6,10 +6,12 @@ import ProductDetailsAr from "@/components/productsComponents/addPage/productDet
 import Pricing from '@/components/productsComponents/addPage/pricing';
 import Options from '@/components/productsComponents/addPage/options';
 import Varients from "@/components/productsComponents/addPage/varients";
+import AddIcon from '@/public/assets/icons/addIcon';
 import { media as Media } from '@/components/productsComponents/addPage/media';
 import { Category, Brand } from '@/types/productsTypes';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import SimilarProduct from '@/components/productsComponents/addPage/similarProducts'
 
 interface Props {
     categories: Category[];
@@ -38,6 +40,7 @@ const ProductForm: FC<Props> = ({ categories, brands, product }) => {
         ageRange: product.ageRange,
         varients: product.varients,
         dimensions: product.dimensions,
+        similarProducts:product.similarProducts
     });
 
 
@@ -61,6 +64,8 @@ const ProductForm: FC<Props> = ({ categories, brands, product }) => {
         }
     }
 
+
+
     return (
         <form onSubmit={handleFormSubmit(product?._id)} className=" mx-auto [&>*]:outline-none flex-1 flex w-full flex-col">
             <ProductDetails formData={formData} handleInputChange={handleInputChange} />
@@ -69,12 +74,8 @@ const ProductForm: FC<Props> = ({ categories, brands, product }) => {
             <Options formData={formData} handleInputChange={handleInputChange} setFormData={setFormData} data={{ categories: categories, brands: brands }} />
             <Varients formData={formData} setFormData={setFormData} />
             <Media formData={formData} setFormData={setFormData} defaultImage={`${process.env.URL}/${formData.imageUrl}`} />
-            <button
-                type="submit"
-                className="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            >
-                save
-            </button>
+            <SimilarProduct formData={formData} handleInputChange={handleInputChange} setFormData={setFormData} data={{ categories: categories, brands: brands }} />
+
         </form>
     );
 };
