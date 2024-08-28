@@ -23,8 +23,6 @@ export default function add() {
     imageUrl: "",
   });
 
-  const [errorMessage, setErrorMessage] = useState("");
-
   const router = useRouter();
 
   const handleChange = (e: InputEvent) => {
@@ -32,6 +30,7 @@ export default function add() {
     setFormData({ ...formData, [name]: value });
   };
 
+  const [errorMessage, setErrorMessage] = useState("");
   const handleSubmit = async (e: SubmitEvent) => {
     e.preventDefault();
     try {
@@ -58,7 +57,7 @@ export default function add() {
         defaultImage={null}
       />
       <input
-        className="capitalize cursor-pointer rounded-md bg-primary text-white font-bold w-full text-center py-3 my-2"
+        className="capitalize cursor-pointer rounded-md bg-secondary text-white font-bold w-full text-center py-3 my-2"
         type="submit"
         value={"add"}
       />

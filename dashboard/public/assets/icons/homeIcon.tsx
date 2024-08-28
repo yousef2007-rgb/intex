@@ -12,14 +12,14 @@ export default function homeIcon() {
       <g clipPath="url(#clip0_34_65)">
         <path
           d="M8.33332 16.6667V11.6667H11.6667V16.6667H15.8333V10H18.3333L9.99999 2.5L1.66666 10H4.16666V16.6667H8.33332Z"
-          fill="#666666"
+          fill="black"
         />
       </g>
-      <defs>
+      <div>
         <clipPath id="clip0_34_65">
           <rect width="20" height="20" fill="white" />
         </clipPath>
-      </defs>
+      </div>
     </svg>
   );
 }

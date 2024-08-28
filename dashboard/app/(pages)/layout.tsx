@@ -9,9 +9,9 @@ export default function layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex">
+    <div className="flex bg-[#FEF7FF]">
       <Nav />
-      <div className="flex !h-screen overflow-y-auto bg-gray-50 flex-col w-full">
+      <div className="flex !h-screen overflow-y-auto flex-col w-full">
         <header></header>
         {children}
       </div>

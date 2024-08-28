@@ -12,7 +12,7 @@ export default function addIcon() {
       <g clipPath="url(#clip0_39_87)">
         <path
           d="M15.8333 10.8333H10.8333V15.8333H9.16663V10.8333H4.16663V9.16666H9.16663V4.16666H10.8333V9.16666H15.8333V10.8333Z"
-          fill="#666666"
+          fill="black"
         />
       </g>
       <defs>

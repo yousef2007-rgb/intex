@@ -35,8 +35,7 @@ export default function body({ data, id }: { data: Category; id: string }) {
   const handleSubmit = async (e: SubmitEvent) => {
     e.preventDefault();
     try {
-      const token =
-        window != undefined ? localStorage.getItem("token") : undefined;
+      const token = localStorage.getItem("token");
 
       await axios.put(`${process.env.URL}/api/categories/${id}`, formData, {
         headers: {
@@ -58,7 +57,7 @@ export default function body({ data, id }: { data: Category; id: string }) {
         defaultImage={`${process.env.URL}/${data.imageUrl}`}
       />
       <input
-        className="capitalize cursor-pointer rounded-md bg-primary text-white font-bold w-full text-center py-3 my-2"
+        className="capitalize cursor-pointer rounded-md bg-secondary text-white font-bold w-full text-center py-3 my-2"
         type="submit"
         value={"edit"}
       />

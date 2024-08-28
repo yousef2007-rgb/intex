@@ -72,7 +72,7 @@ const pageBody: FC<Props> = ({ data }) => {
             </h4>
             <div className="flex sm:flex-row flex-col mt-2">
               <Link
-                className="transition-all hover:text-primary bg-primary text-white hover:bg-white px-4 py-2 rounded-md my-2 capitalize border-2 border-primary w-full sm:w-[50%] text-center mr-2"
+                className="transition-all hover:text-secondary bg-secondary text-white hover:bg-white px-4 py-2 rounded-md my-2 capitalize border-2 border-secondary w-full sm:w-[50%] text-center mr-2"
                 href={`/orders/${order._id}`}
               >
                 Details

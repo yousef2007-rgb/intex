@@ -70,7 +70,7 @@ export default function page() {
         <input
           type="submit"
           value={"signin"}
-          className="bg-blue-800 cursor-pointer rounded-full p-2 h-14 mt-5 text-white font-bold rounded-md "
+          className="bg-secondary cursor-pointer rounded-full p-2 h-14 mt-5 text-white font-bold rounded-md "
         />
         {errorMessage ? (
           <p className="text-red-200 bg-red-400 rounded-md mt-2 p-2">

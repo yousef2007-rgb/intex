@@ -94,7 +94,7 @@ export default function add({
       />
       <Varients setFormData={setFormData} formData={formData} />
       <input
-        className="capitalize cursor-pointer rounded-md bg-primary text-white font-bold w-full text-center py-3 my-2"
+        className="capitalize cursor-pointer rounded-md bg-secondary text-white font-bold w-full text-center py-3 my-2"
         type="submit"
         value={"add"}
       />

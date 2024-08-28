@@ -79,7 +79,7 @@ const media = ({
         {selectedImage ? (
           <button
             onClick={handleImageUploadReq}
-            className="bg-blue-400 text-white p-2 rounded-md font-semibold ml-auto"
+            className="bg-secondary text-white p-2 rounded-md font-semibold ml-auto"
           >
             Upload
           </button>

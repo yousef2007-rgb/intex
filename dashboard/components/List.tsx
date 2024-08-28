@@ -42,9 +42,9 @@ export default function productsList({
   return (
     <div className="felx flex-col w-full px-2 max-h-screen max-w-[800px]s mx-auto">
       <div className="flex w-full my-3">
-        <div className="rounded-md border bg-white flex items-center flex-1 px-5">
+        <div className="rounded-md  bg-primary cursor-text flex items-center flex-1 px-5">
           <input
-            className="w-full text-gray-800 rounded-md  outline-none  text-base font-semibold  py-[12px] flex-1"
+            className="w-full bg-inherit placeholder:font-medium  text-gray-800 rounded-md  outline-none  text-base font-semibold  py-[12px] flex-1"
             placeholder="Search for a Product"
             type="text"
             onChange={handleSearchBoxChange}
@@ -55,19 +55,19 @@ export default function productsList({
         </div>
         <Link
           href={`${path}/add`}
-          className="rounded-md   border bg-white flex items-center px-5 ml-2"
+          className="rounded-md    bg-primary flex items-center px-5 ml-2"
         >
           <AddIcon />
         </Link>
       </div>
-      <div className="flex flex-col overflow-y-auto h-[90vh] flex-1 bg-white rounded-md border">
+      <div className="flex flex-col overflow-y-auto flex-1 bg-white rounded-md">
         {res.map(
           (
             product: ProductWithId | CategoryWithId | BrandWithId,
             index: number
           ) => (
             <div
-              style={{ backgroundColor: index % 2 != 0 ? "#eee" : "white" }}
+              style={{ backgroundColor: index % 2 != 0 ? "#e9e3f1" : "white" }}
               className="flex items-center mx-auto p-5 text-sm font-semibold border-b w-full"
               key={index}
             >
