@@ -1,12 +1,13 @@
 import { Product } from "@/types/productsTypes";
 import { Category } from "@/types/productsTypes";
 import axios from "axios";
+import axiosInstance from "@/lib/axiosInstance";
 import React from "react";
 import { productCards as ProductCard } from "@/components/product/productCards";
 import type { Metadata } from "next";
 
 const getProducts = async (id: string) => {
-  const products = await axios.get(
+  const products = await axiosInstance.get(
     `${process.env.URL}/api/products/category/${id}`
   );
 
@@ -14,7 +15,7 @@ const getProducts = async (id: string) => {
 };
 
 const getCategory = async (id: string) => {
-  const category = await axios.get(`${process.env.URL}/api/categories/${id}`);
+  const category = await axiosInstance.get(`${process.env.URL}/api/categories/${id}`);
 
   return category.data;
 };

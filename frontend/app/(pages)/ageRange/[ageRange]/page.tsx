@@ -4,6 +4,7 @@ import React from "react";
 import { productCards as ProductCard } from "@/components/product/productCards";
 import type { Metadata } from "next";
 import data from "@/data/homepage.json";
+import axiosInstance from "@/lib/axiosInstance";
 const content = data.Head.english;
 
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 const getProducts = async (ageRange: string) => {
-  const products = await axios.get(
+  const products = await axiosInstance.get(
     `${process.env.URL}/api/products/ageRange/${ageRange}`
   );
 

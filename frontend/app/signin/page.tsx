@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCookies } from "next-client-cookies";
 import Link from "next/link";
+import axiosInstance from "@/lib/axiosInstance";
 import axios from "axios";
 
 const page = (props: {}) => {
@@ -34,7 +35,7 @@ const page = (props: {}) => {
     setError("");
 
     try {
-      const token = await axios.post(`${process.env.URL}/api/auth`, {
+      const token = await axiosInstance.post(`${process.env.URL}/api/auth`, {
         email: email,
         password: password,
       });

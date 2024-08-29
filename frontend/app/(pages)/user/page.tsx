@@ -4,9 +4,10 @@ import React from "react";
 import { getCookies } from "next-client-cookies/server";
 import { redirect } from "next/navigation";
 import Logout from "./logout";
+import axiosInstance from "@/lib/axiosInstance";
 
 const getUserData = async (token: string) => {
-  const res = await axios.get(`${process.env.URL}/api/users/me`, {
+  const res = await axiosInstance.get(`${process.env.URL}/api/users/me`, {
     headers: {
       "x-web-token": token,
       "Cache-Control": "no-cache",

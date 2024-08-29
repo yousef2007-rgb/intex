@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useCookies } from "next-client-cookies";
 import Link from "next/link";
 import axios from "axios";
+import axiosInstance from "@/lib/axiosInstance";
 import { User, UserWithoutId } from "@/types/productsTypes";
 
 const page = (props: {}) => {
@@ -36,7 +37,7 @@ const page = (props: {}) => {
     event.preventDefault();
     setError("");
     try {
-      const codeData = await axios.post(
+      const codeData = await axiosInstance.post(
         `${process.env.URL}/api/users/generateCode`,
         {
           ...formData,
@@ -61,7 +62,7 @@ const page = (props: {}) => {
     const formDataWithCodeData = { ...formData, code: code, id: id };
 
     try {
-      const token = await axios.post(`${process.env.URL}/api/users`, {
+      const token = await axiosInstance.post(`${process.env.URL}/api/users`, {
         ...formDataWithCodeData,
       });
       console.log(token);

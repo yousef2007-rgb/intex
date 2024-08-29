@@ -4,11 +4,13 @@ import { Category, Product } from "@/types/productsTypes";
 import Link from "next/link";
 import { productCards as ProductCard } from "@/components/product/productCards";
 import content from "@/data/homepage.json";
+import axiosInstance from '@/lib/axiosInstance.js'
 
 const getProducts = async () => {
-  const products = await axios.get(
+
+  const products = await axiosInstance.get(
     `${process.env.URL}/api/products/?limitPerCategory=4`
-  );
+);
   return products.data;
 };
 

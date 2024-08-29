@@ -7,6 +7,7 @@ import { useCookies } from "next-client-cookies";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
+import axiosInstance from "@/lib/axiosInstance";
 
 const page = (props: {}) => {
   const cookies = useCookies();
@@ -58,7 +59,7 @@ const page = (props: {}) => {
     const token = cookies.get("verification-token-kidz-marty");
     if (token) {
       try {
-        const response = await axios.post(
+        const response = await axiosInstance.post(
           `${process.env.URL}/api/orders`,
           { products: cartItems },
           { headers: { "x-web-token": token } }

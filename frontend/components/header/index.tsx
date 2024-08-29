@@ -7,9 +7,10 @@ import Navigation from "./navigation";
 import MobileNavigation from "./mobileNavigation";
 import Link from "next/link";
 import Language from "./language";
+import axiosInstance from "@/lib/axiosInstance";
 
 const getCategories = async () => {
-  const categories = await axios.get(`${process.env.URL}/api/categories`);
+  const categories = await axiosInstance.get(`${process.env.URL}/api/categories`);
   return categories.data;
 };
 

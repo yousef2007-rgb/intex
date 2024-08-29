@@ -7,8 +7,9 @@ import { imageSlider as ImageSlider } from "./imageSlider";
 import { addToCart as AddToCart } from "./addToCart";
 import { Metadata } from "next";
 import Head from "next/head";
+import axiosInstance from "@/lib/axiosInstance";
 const getProduct = async (_id: string) => {
-  const res = await axios.get(`${process.env.URL}/api/products/${_id}`);
+  const res = await axiosInstance.get(`${process.env.URL}/api/products/${_id}`);
   return res.data;
 };
 export async function generateMetadata({
