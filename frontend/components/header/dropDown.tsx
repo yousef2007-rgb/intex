@@ -21,6 +21,7 @@ export const dropDown: FC<Props> = ({
   const handleMouseOut = () => {
     setDropDownVisability(false);
   };
+
   return (
     <div
       className="flex z-10 hover:-translate-y-1 transition-all p-2 sm:rounded-b-none rounded-b-md rounded-t-md hover:bg-gray-100"
