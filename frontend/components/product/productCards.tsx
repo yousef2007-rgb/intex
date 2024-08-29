@@ -17,7 +17,7 @@ export const productCards: FC<Props> = ({ product, index, lang }) => {
     >
       <div className="h-[200px] bg-white w-full flex justify-center items-center ">
         <img
-          // loading="lazy"
+          loading="lazy"
           className=" rounded-md h-fit max-h-[200px] object-contain"
           src={`${process.env.URL}/${product.imageUrl}`}
           alt={product.title}

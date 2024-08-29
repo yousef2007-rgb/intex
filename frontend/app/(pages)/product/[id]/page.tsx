@@ -194,7 +194,7 @@ const page = async ({
                     className="max-w-[150px] flex rounded-md flex-1 mr-2 bg-white"
                   >
                     <img
-                      // loading="lazy"
+                      loading="lazy"
                       className=" aspect-square rounded-md object-contain w-full"
                       src={`${process.env.URL}/${productData.imageUrl}`}
                       alt={productData.title}
@@ -212,7 +212,7 @@ const page = async ({
                       key={index}
                     >
                       <img
-                        // loading="lazy"
+                        loading="lazy"
                         className=" aspect-square rounded-md object-contain w-full"
                         src={`${process.env.URL}/${varient.imageUrl}`}
                         alt={varient.title}
