@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     env: {
-        URL: "http://localhost:8000"
+        URL: "http://176.29.199.238"
     }
 }
 

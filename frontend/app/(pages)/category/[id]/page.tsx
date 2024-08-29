@@ -19,7 +19,6 @@ const getCategory = async (id: string) => {
   return category.data;
 };
 
-export const metadata = {};
 
 export async function generateMetadata({
   params,
