@@ -21,7 +21,7 @@ const getCategory = async (id: string) => {
 
 export const metadata = {};
 
-export async function generateMetaData({
+export async function generateMetadata({
   params,
   searchParams,
 }: {
