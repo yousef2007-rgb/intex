@@ -29,7 +29,7 @@ export const body: FC<Props> = ({ products, setVisability }) => {
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     const key = e.key;
     if (key == "Enter" && searchResult.current?.firstElementChild != null) {
-      searchResult.current.firstElementChild.click();
+      (searchResult.current.firstElementChild as HTMLElement).click();
     }
   };
 
