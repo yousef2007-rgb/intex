@@ -4,13 +4,19 @@ import { dropDown as DropDown } from "./dropDown";
 import { attribute as Attribute } from "./attribute";
 import { closeIcon as CloseIcon } from "@/public/icons/closeIcon";
 import MenuIcon from "@/public/icons/menuIcon";
+import { useSearchParams } from "next/navigation";
+import content from "@/data/content.json";
 
 export default function navigation({
   links,
 }: {
-  links: { text: string; link: string }[];
+  links: { text: string; text_ar: string; link: string }[];
 }) {
   const [isVisible, setIsVisible] = useState(false);
+  const searchParams = useSearchParams();
+  const lang = searchParams.get("lang");
+  const navContent =
+    lang != "ar" ? content.navigation.en : content.navigation.ar;
   return (
     <>
       <button onClick={() => setIsVisible(!isVisible)} className="mx-4 ">
@@ -26,11 +32,9 @@ export default function navigation({
           <Attribute link="/" text="Home" />
           <Attribute link="/aboutus" text="About Us" />
         </div>
-        <DropDown
-          title={"Categories"}
-          links={links}
-          setNavVisability={setIsVisible}
-        />
+
+      <DropDown title={navContent.categories} links={links} lang={lang} />
+
       </nav>
     </>
   );
